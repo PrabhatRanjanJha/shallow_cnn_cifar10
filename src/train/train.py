@@ -1,6 +1,6 @@
 import torch
-import torch.nn as nn
-import torch.optim as optim
+from src.train.loss import get_loss
+from src.train.optimizer import get_optimizer
 
 from src.model.cnn import ShallowCNN
 from src.data.dataloader import get_train_dataloader, get_test_dataloader
@@ -18,14 +18,10 @@ def train():
     model = ShallowCNN().to(device)
 
     # -------- Loss function --------
-    criterion = nn.CrossEntropyLoss()
+    criterion = get_loss()
 
     # -------- Optimizer (historically correct choice) --------
-    optimizer = optim.SGD(
-        model.parameters(),
-        lr=0.01,
-        momentum=0.9
-    )
+    optimizer = get_optimizer(model)
 
     # -------- Training loop --------
     num_epochs = 10
