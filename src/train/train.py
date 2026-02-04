@@ -60,7 +60,10 @@ def train():
         print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {avg_loss:.4f}")
 
     print("Training finished.")
+    torch.save(model.state_dict(), "model.pth")
+
 
 
 if __name__ == "__main__":
     train()
+    
