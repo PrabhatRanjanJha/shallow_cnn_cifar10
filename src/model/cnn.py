@@ -34,7 +34,7 @@ class ShallowCNN(nn.Module):
         self.fc1 = nn.Linear(32 * 8 * 8, 120)
         self.tanh3 = nn.Tanh()
 
-        self.fc2 = nn.Linear(120, 10)  # 10 classes for CIFAR-10
+        self.fc2 = nn.Linear(120, 100)  # 10 classes for CIFAR-10
 
     def forward(self, x):
         # Convolution block 1
